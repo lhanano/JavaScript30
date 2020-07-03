@@ -63,7 +63,7 @@
       transform-origin: bottom;
       /*transition: all 0.05s;
       transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1); 
-      transition causes a glitch at the the end of 60s secons because the hand rewinds back to the beginning. to fix use an if statement, or get rid of 'tick' transition.
+      /*transition causes a glitch at the the end of 60s secons because the hand rewinds back to the beginning. to fix use an if statement, or get rid of 'tick' transition.
       also need to add a slow transition for hour hand to slowly move rather than just at the top of the hour*/
     }
 
@@ -94,7 +94,7 @@
       const hours = time.getHours();
       const secondsDegrees = seconds * 6;
       const minutesDegrees = minutes * 6;
-      const hourDegrees = hours * 30;
+      const hourDegrees = hours * 30 + minutes * .5;
       const secondHand = document.querySelector('.second-hand');
       const minuteHand = document.querySelector('.min-hand');
       const hourHand = document.querySelector('.hour-hand');
@@ -104,6 +104,8 @@
     }
     
     setInterval(timeToDegrees, 100);
+
+    timeToDegrees();
 
   </script>
 </body>
